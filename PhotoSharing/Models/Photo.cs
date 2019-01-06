@@ -34,5 +34,6 @@ namespace PhotoSharing.Models
         public DbSet<Photo> Photos { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Comment> Comments { get; set; }
+        public DbSet<Album> Albums { get; set; }
     }
 }

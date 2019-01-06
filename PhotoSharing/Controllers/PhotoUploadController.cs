@@ -33,7 +33,7 @@ namespace PhotoSharing.Controllers
             var Photos = from photo in db.Photos
                          orderby photo.Id descending
                          select photo;
-            return View(Photos);
+            return View(Photos.Take(12));
         }
 
 
