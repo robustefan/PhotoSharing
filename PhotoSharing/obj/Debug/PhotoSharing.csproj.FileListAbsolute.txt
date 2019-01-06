@@ -77,7 +77,6 @@ D:\PhotoSharing\PhotoSharing\bin\Microsoft.Owin.Security.OAuth.xml
 D:\PhotoSharing\PhotoSharing\bin\Microsoft.Owin.Security.Google.xml
 D:\PhotoSharing\PhotoSharing\bin\Microsoft.Owin.Security.Twitter.xml
 D:\PhotoSharing\PhotoSharing\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-D:\PhotoSharing\PhotoSharing\obj\Debug\PhotoSharing.csprojResolveAssemblyReference.cache
 D:\PhotoSharing\PhotoSharing\obj\Debug\PhotoSharing.dll
 D:\PhotoSharing\PhotoSharing\obj\Debug\PhotoSharing.pdb
 C:\Users\Stefan\Desktop\PhotoSharing-defe48cc7f07fbb2d869ec5c6a04e41ac1969cfd\PhotoSharing\bin\ApplicationInsights.config
@@ -162,3 +161,6 @@ C:\Users\Stefan\Desktop\PhotoSharing-defe48cc7f07fbb2d869ec5c6a04e41ac1969cfd\Ph
 C:\Users\Stefan\Desktop\PhotoSharing-defe48cc7f07fbb2d869ec5c6a04e41ac1969cfd\PhotoSharing\obj\Debug\PhotoSharing.csprojResolveAssemblyReference.cache
 C:\Users\Stefan\Desktop\PhotoSharing-defe48cc7f07fbb2d869ec5c6a04e41ac1969cfd\PhotoSharing\obj\Debug\PhotoSharing.dll
 C:\Users\Stefan\Desktop\PhotoSharing-defe48cc7f07fbb2d869ec5c6a04e41ac1969cfd\PhotoSharing\obj\Debug\PhotoSharing.pdb
+D:\PhotoSharing\PhotoSharing\obj\Debug\PhotoSharing.csprojAssemblyReference.cache
+D:\PhotoSharing\PhotoSharing\obj\Debug\PhotoSharing.csproj.CoreCompileInputs.cache
+D:\PhotoSharing\PhotoSharing\obj\Debug\PhotoSharing.csproj.CopyComplete

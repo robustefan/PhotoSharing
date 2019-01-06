@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PhotoSharing.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,9 +9,13 @@ namespace PhotoSharing.Controllers
 {
     public class HomeController : Controller
     {
+        private PhotoDBContext db = new PhotoDBContext();
         public ActionResult Index()
         {
-            return View();
+            var photos = from photo in db.Photos
+                         orderby photo.Id
+                         select photo;
+            return View(photos);
         }
 
         public ActionResult About()

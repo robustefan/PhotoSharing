@@ -28,6 +28,15 @@ namespace PhotoSharing.Controllers
             return View(categories);
         }
 
+        public ActionResult ShowRecentPhotos()
+        {
+            var Photos = from photo in db.Photos
+                         orderby photo.Id descending
+                         select photo;
+            return View(Photos);
+        }
+
+
         [HttpPost]
         public ActionResult New(Photo photo,HttpPostedFileBase PostedImage, Category category)
         {
