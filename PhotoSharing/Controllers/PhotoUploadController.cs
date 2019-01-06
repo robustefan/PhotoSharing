@@ -33,7 +33,12 @@ namespace PhotoSharing.Controllers
         {
             photo.UserId = User.Identity.GetUserId();
             Category cat = db.Categories.Find(category.Id);
-            photo.Categories.Add(cat);
+            Category cpy = cat;
+            if (cpy != null)
+            {
+                db.Categories.Add(cpy);
+                photo.Categories.Add(cat);
+            }
             if (PostedImage != null)
             {
                 using (MemoryStream ms = new MemoryStream())

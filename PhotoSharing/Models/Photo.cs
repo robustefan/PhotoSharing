@@ -28,7 +28,7 @@ namespace PhotoSharing.Models
 
         public string UserId { get; set; }
 
-        public virtual ICollection<Category> Categories { get; set; }
+        public Category category;
     }
 
     public class PhotoDBContext : DbContext

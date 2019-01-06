@@ -66,7 +66,6 @@ namespace PhotoSharing.Controllers
                 if(TryUpdateModel(category))
                 {
                     category.Name = requestCategory.Name;
-                    category.photo = requestCategory.photo;
                     db.SaveChanges();
                 }
                 return RedirectToAction("Index");
