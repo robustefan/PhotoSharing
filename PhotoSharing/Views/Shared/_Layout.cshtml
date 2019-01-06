@@ -23,13 +23,13 @@
             </div>
             <div class="navbar-collapse collapse">
                 <div class="row" style="display:flex; align-items:center;">
-                    <div class="col-md-8" style="display:flex; justify-content:center;">
+                    <div class="col-md-6" style="display:flex; justify-content:center;">
                         <ul class="nav navbar-nav" style="display:flex; align-items:center;">
                             <li style="margin-right:-25px; z-index:999;"><i class="fas fa-search" style="color:#aaaaaa; font-size:18px;"></i></li>
                             <li><input type="text" name="search" id="search" placeholder="Search photo..." /></li>
                         </ul>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-6">
                         @Html.Partial("_LoginPartial")
                     </div>
                 </div>
@@ -38,7 +38,7 @@
     </div>
     <div class="container body-content">
         @RenderBody()
-        @Html.Partial("_RecentPhotos")
+
         <hr />
 
     </div>

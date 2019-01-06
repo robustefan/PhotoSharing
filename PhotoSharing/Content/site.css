@@ -437,3 +437,7 @@ textarea {
         right: -110px;
     }
 }
+
+#logoutForm {
+    margin:0 !important;
+}

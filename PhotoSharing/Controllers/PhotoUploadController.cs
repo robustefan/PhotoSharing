@@ -33,12 +33,8 @@ namespace PhotoSharing.Controllers
         {
             photo.UserId = User.Identity.GetUserId();
             Category cat = db.Categories.Find(category.Id);
-            Category cpy = cat;
-            if (cpy != null)
-            {
-                db.Categories.Add(cpy);
-                photo.Categories.Add(cat);
-            }
+            photo.category = cat;
+            photo.CategoryId = cat.Id;
             if (PostedImage != null)
             {
                 using (MemoryStream ms = new MemoryStream())
@@ -53,6 +49,7 @@ namespace PhotoSharing.Controllers
                 {                
                     db.Photos.Add(photo);
                     db.SaveChanges();
+                    cat.Photos.Add(photo);
                     return RedirectToAction("Index");
                 }
                 else
