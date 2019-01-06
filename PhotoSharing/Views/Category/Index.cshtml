@@ -8,4 +8,12 @@
 @foreach (PhotoSharing.Models.Category category in Model)
 {
 <p>@category.Name</p>
+<a href="/Category/Edit/@category.Id">Edit category</a>
+<form method="post" action="/Category/Delete/@category.Id">
+    @Html.HttpMethodOverride(HttpVerbs.Delete)
+    <button type="submit">Delete Category</button>
+</form>
+
 }
+
+<a href="/Category/New">Add a new category</a>
