@@ -15,7 +15,7 @@
             <div class="navbar-header" style="color:#ffffff;">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="icon-bar"></span>
-                    
+
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
@@ -36,6 +36,7 @@
             </div>
         </div>
     </div>
+    @Html.Partial("_StickyNavBar")
     <div class="container body-content">
         @RenderBody()
 
@@ -46,34 +47,34 @@
 
         var TIMEOUT = 6000;
 
-var interval = setInterval(handleNext, TIMEOUT);
+        var interval = setInterval(handleNext, TIMEOUT);
 
-function handleNext() {
+        function handleNext() {
 
-  var $radios = $('input[class*=&quot;slide-radio&quot;]');
-  var $activeRadio = $('input[class*=&quot;slide-radio&quot;]:checked');
+            var $radios = $('input[class*=&quot;slide-radio&quot;]');
+            var $activeRadio = $('input[class*=&quot;slide-radio&quot;]:checked');
 
-  var currentIndex = $activeRadio.index();
-  var radiosLength = $radios.length;
+            var currentIndex = $activeRadio.index();
+            var radiosLength = $radios.length;
 
-  $radios
-    .attr('checked', false);
+            $radios
+                .attr('checked', false);
 
-  if (currentIndex &gt;= radiosLength - 1) {
+            if (currentIndex & gt;= radiosLength - 1) {
 
-    $radios
-      .first()
-      .attr('checked', true);
+                $radios
+                    .first()
+                    .attr('checked', true);
 
-  } else {
+            } else {
 
-    $activeRadio
-      .next('input[class*=&quot;slide-radio&quot;]')
-      .attr('checked', true);
+                $activeRadio
+                    .next('input[class*=&quot;slide-radio&quot;]')
+                    .attr('checked', true);
 
-  }
+            }
 
-}
+        }
     </script>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")

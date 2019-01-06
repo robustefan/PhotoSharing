@@ -323,6 +323,7 @@
     <Content Include="Views\Albums\Show.cshtml" />
     <Content Include="Views\Albums\New.cshtml" />
     <Content Include="Views\Albums\AddPhotoToAlbum.cshtml" />
+    <Content Include="Views\Shared\_StickyNavBar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
