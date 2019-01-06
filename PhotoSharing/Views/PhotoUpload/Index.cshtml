@@ -1,0 +1,14 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@foreach (PhotoSharing.Models.Photo photo in Model)
+{
+    <p>@photo.Name</p>
+    <p>@photo.Description</p>
+    <img src="data:image;base64,@System.Convert.ToBase64String(@photo.Image)" height="180px" width="360px"/>
+    <a href="/PhotoUpload/Show/@photo.Id">Show Image</a>
+}

@@ -1,0 +1,13 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@foreach (PhotoSharing.Models.Comment comment in Model)
+{
+    <p>@comment.PhotoId</p>
+    <p>@comment.Text</p>
+
+}

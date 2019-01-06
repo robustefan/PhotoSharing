@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewBag.Title = "Show";
+}
+
+<h2>Show</h2>
+
+<p>@ViewBag.Photo.Name</p>
+<p>@ViewBag.Photo.Description</p>
+<img src="data:image;base64,@System.Convert.ToBase64String(@ViewBag.Photo.Image)"/>
+
+@foreach(var category in ViewBag.Photo.Categories)
+{
+    <p>@category.Name</p>
+}

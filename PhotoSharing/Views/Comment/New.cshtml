@@ -1,0 +1,9 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>@Model.Name</p>
+<p>@Model.Description</p>
+<img src="data:image;base64,@System.Convert.ToBase64String(@Model.Image)" height="180px" width="360px" />

@@ -1,0 +1,81 @@
+﻿<<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header" style="color:#ffffff;">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Photo Sharing", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <div class="row" style="display:flex; align-items:center;">
+                    <div class="col-md-8" style="display:flex; justify-content:center;">
+                        <ul class="nav navbar-nav" style="display:flex; align-items:center;">
+                            <li style="margin-right:-25px; z-index:999;"><i class="fas fa-search" style="color:#aaaaaa; font-size:18px;"></i></li>
+                            <li><input type="text" name="search" id="search" placeholder="Search photo..." /></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3">
+                        @Html.Partial("_LoginPartial")
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        @Html.Partial("_RecentPhotos")
+        <hr />
+
+    </div>
+    <script>
+
+        var TIMEOUT = 6000;
+
+var interval = setInterval(handleNext, TIMEOUT);
+
+function handleNext() {
+
+  var $radios = $('input[class*=&quot;slide-radio&quot;]');
+  var $activeRadio = $('input[class*=&quot;slide-radio&quot;]:checked');
+
+  var currentIndex = $activeRadio.index();
+  var radiosLength = $radios.length;
+
+  $radios
+    .attr('checked', false);
+
+  if (currentIndex &gt;= radiosLength - 1) {
+
+    $radios
+      .first()
+      .attr('checked', true);
+
+  } else {
+
+    $activeRadio
+      .next('input[class*=&quot;slide-radio&quot;]')
+      .attr('checked', true);
+
+  }
+
+}
+    </script>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

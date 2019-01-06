@@ -1,0 +1,39 @@
+﻿@{
+    ViewBag.Title = "Photo Sharing";
+}
+<!-- Slider Wrapper -->
+<div class="css-slider-wrapper">
+    <input type="radio" name="slider" class="slide-radio1" checked id="slider_1">
+    <input type="radio" name="slider" class="slide-radio2" id="slider_2">
+    <input type="radio" name="slider" class="slide-radio3" id="slider_3">
+    <input type="radio" name="slider" class="slide-radio4" id="slider_4">
+    <!-- Slider Pagination -->
+    <div class="slider-pagination">
+        <label for="slider_1" class="page1"></label>
+        <label for="slider_2" class="page2"></label>
+    </div>
+    <!-- Slider #1 -->
+    <div class="slider slide-1" style='background:url(@Url.Content("~/Content/Images/photo1.jpg")) center no-repeat;'>
+        <!--<img src=@Url.Content("~/Content/Images/photo1.jpg") alt="Photo Sharing slider1">-->
+        <div class="slider-content">
+            <p style="color:#fff;font-size:30px;">Share your inspiration</p>
+            <p style="color:#fff; font-size:20px; margin-bottom:30px;">Join our community and share your photo to inspire another people.</p>
+            <button type="button" class="buy-now-btn" name="button">@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</button>
+            <!-- <i class="fas fa-chevron-right" style="color:#fff; font-size:22px; margin-left:-40px; z-index:99; opacity:0.8;"></i> -->
+        </div>
+
+    </div>
+    <!-- Slider #2 -->
+    <div class="slider slide-2" style='background:url(@Url.Content("~/Content/Images/photo2.png")) center no-repeat;'>
+        <!--<img src="images/model-2.png" alt=""> -->
+        <div class="slider-content">
+            <p style="color:#fff;font-size:30px;">Help people make their photos available to the people who matter to them.</p>
+            <p style="color:#fff;font-size:15px;">Get photos and video into and out of the system in as many ways as we can: from the web, from mobile devices, from the users' home computers and from whatever software they are using to manage their content.</p>
+            <p style="color:#fff;font-size:30px;">Enable new ways of organizing photos and video</p>
+            <p style="color:#fff;font-size:15px;">Part of the solution is to make the process of organizing photos or videos collaborative. In Flickr, you can give your friends, family, and other contacts permission to organize your stuff - not just to add comments, but also notes and tags.</p>
+            <button type="button" class="buy-now-btn" name="button">@Html.ActionLink("LOG IN", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</button>
+        </div>
+
+    </div>
+</div>
+
