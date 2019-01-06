@@ -15,9 +15,9 @@ namespace PhotoSharing.Controllers
         public ActionResult Index()
         {
             var photos = from photo in db.Photos
-                         orderby photo.Id
+                         orderby photo.Id descending
                          select photo;
-            return View(photos);
+            return View(photos.Take(12));
         }
 
         public ActionResult New()
