@@ -162,3 +162,6 @@ C:\Users\Stefan\Desktop\PhotoSharing-defe48cc7f07fbb2d869ec5c6a04e41ac1969cfd\Ph
 C:\Users\Stefan\Desktop\PhotoSharing-defe48cc7f07fbb2d869ec5c6a04e41ac1969cfd\PhotoSharing\obj\Debug\PhotoSharing.dll
 C:\Users\Stefan\Desktop\PhotoSharing-defe48cc7f07fbb2d869ec5c6a04e41ac1969cfd\PhotoSharing\obj\Debug\PhotoSharing.pdb
 D:\PhotoSharing\PhotoSharing\obj\Debug\PhotoSharing.csprojResolveAssemblyReference.cache
+D:\PhotoSharing\PhotoSharing\obj\Debug\PhotoSharing.csprojAssemblyReference.cache
+D:\PhotoSharing\PhotoSharing\obj\Debug\PhotoSharing.csproj.CoreCompileInputs.cache
+D:\PhotoSharing\PhotoSharing\obj\Debug\PhotoSharing.csproj.CopyComplete
