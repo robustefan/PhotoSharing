@@ -1,0 +1,9 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<h1>@ViewBag.UserName Albums:</h1>
+@foreach (var album in ViewBag.Albums)
+{
+    <a href="/Albums/Show/@album.Id"><p>@album.Name</p></a>
+}

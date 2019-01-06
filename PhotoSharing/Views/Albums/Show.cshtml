@@ -1,0 +1,14 @@
+﻿@{
+    ViewBag.Title = "Show";
+}
+
+<h1>@ViewBag.Album.Name</h1>
+<a href="../AddPhotoToAlbum/@ViewBag.Album.Id">Add more Photos to this album</a>
+
+@foreach (var photo in ViewBag.Photos)
+{
+    <p>@photo.Name</p>
+    <p>@photo.Description</p>
+    <img src="data:image;base64,@System.Convert.ToBase64String(@photo.Image)" />
+    <a href="@Url.Action("Show","PhotoUpload", new { id = @photo.Id })">View Photo</a>
+}

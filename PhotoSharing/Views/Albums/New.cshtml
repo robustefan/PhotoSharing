@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "New";
+}
+
+<h1>Create new album:</h1>
+
+@using (Html.BeginForm())
+{
+    @Html.Label("Name", "Album Name:")
+    <br />
+    @Html.Editor("Name")
+    @Html.ValidationMessage("Name", new { @class = "text-danger " })
+    <br /><br />
+    <input type="submit" class="submit" />
+}
