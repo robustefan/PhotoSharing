@@ -67,6 +67,10 @@ namespace PhotoSharing.Controllers
         {
             Photo photo = db.Photos.Find(id);
             ViewBag.Photo = photo;
+            var categories = from category in db.Categories
+                               where category.Id == photo.CategoryId
+                               select category;
+            ViewBag.cat = categories;
             return View();
         }
 

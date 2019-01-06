@@ -8,4 +8,7 @@
 <p>@ViewBag.Photo.Name</p>
 <p>@ViewBag.Photo.Description</p>
 <img src="data:image;base64,@System.Convert.ToBase64String(@ViewBag.Photo.Image)"/>
-<p>@ViewBag.Photo.category.Name</p>
+@foreach (PhotoSharing.Models.Category category in ViewBag.cat)
+{
+    <p>#@category.Name</p>
+}
