@@ -317,6 +317,7 @@
     <Content Include="Views\Shared\_RecentPhoto.cshtml" />
     <Content Include="Views\Category\Edit.cshtml" />
     <Content Include="Views\Category\ShowAll.cshtml" />
+    <Content Include="Views\Shared\_StickyNavBar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
