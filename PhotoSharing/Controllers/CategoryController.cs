@@ -84,5 +84,14 @@ namespace PhotoSharing.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        public ActionResult ShowAll(int id)
+        {
+            Category category = db.Categories.Find(id);
+            var photos = from photo in category.Photos.Reverse() select photo;
+            ViewBag.Photos = photos.Take(12);
+            ViewBag.Category = category;
+            return View();
+        }
     }
 }
