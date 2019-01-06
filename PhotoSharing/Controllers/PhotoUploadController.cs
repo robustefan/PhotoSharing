@@ -42,7 +42,8 @@ namespace PhotoSharing.Controllers
         {
             photo.UserId = User.Identity.GetUserId();
             Category cat = db.Categories.Find(category.Id);
-            photo.Categories.Add(cat);
+            photo.category = cat;
+            photo.CategoryId = cat.Id;
             if (PostedImage != null)
             {
                 using (MemoryStream ms = new MemoryStream())
@@ -57,6 +58,7 @@ namespace PhotoSharing.Controllers
                 {                
                     db.Photos.Add(photo);
                     db.SaveChanges();
+                    cat.Photos.Add(photo);
                     return RedirectToAction("Index");
                 }
                 else
@@ -74,6 +76,10 @@ namespace PhotoSharing.Controllers
         {
             Photo photo = db.Photos.Find(id);
             ViewBag.Photo = photo;
+            var categories = from category in db.Categories
+                               where category.Id == photo.CategoryId
+                               select category;
+            ViewBag.cat = categories;
             return View();
         }
 

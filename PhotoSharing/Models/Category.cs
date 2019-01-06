@@ -16,7 +16,7 @@ namespace PhotoSharing.Models
         [Required(ErrorMessage = "Category Name is required!")]
         public string Name { get; set; }
 
-        public Photo photo;
+        public virtual ICollection<Photo> Photos { get; set; }
 
     }
 }

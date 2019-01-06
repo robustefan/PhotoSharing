@@ -9,10 +9,6 @@ namespace PhotoSharing.Models
 {
     public class Photo
     {
-        public Photo()
-        {
-            this.Categories = new HashSet<Category>();
-        }
         [Key]
         public int Id { get; set; }
 
@@ -27,8 +23,9 @@ namespace PhotoSharing.Models
         public byte[] Image { get; set; }
 
         public string UserId { get; set; }
+        public int CategoryId { get; set; }
 
-        public virtual ICollection<Category> Categories { get; set; }
+        public Category category;
     }
 
     public class PhotoDBContext : DbContext
