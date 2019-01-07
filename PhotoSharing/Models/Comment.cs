@@ -14,11 +14,15 @@ namespace PhotoSharing.Models
 
         public string UserId { get; set; }
 
+        public string UserName { get; set; }
+
         public int PhotoId { get; set; }
 
         [Required]
         [MaxLength(200, ErrorMessage = "Comment text must be at most 200 characters")]
         public string Text { get; set; }
+
+        public int AcceptedOrDeclined { get; set; }
 
     }
 }

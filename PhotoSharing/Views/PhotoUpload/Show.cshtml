@@ -1,12 +1,65 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Show";
 }
+@using Microsoft.AspNet.Identity
+@using Microsoft.AspNet.Identity.EntityFramework
 
 <p>@ViewBag.Photo.Name</p>
 <p>@ViewBag.Photo.Description</p>
 <img src="data:image;base64,@System.Convert.ToBase64String(@ViewBag.Photo.Image)"/>
-@foreach (PhotoSharing.Models.Category category in ViewBag.cat)
+
+@foreach (PhotoSharing.Models.Category category in ViewBag.Category)
 {
     <a href="../../Category/ShowAll/@category.Id">#@category.Name</a>
 }
+
+@foreach(PhotoSharing.Models.Comment comment in ViewBag.Comments)
+{
+    <br /><label>@comment.UserName: </label><p>@comment.Text</p>
+    if(@ViewBag.Photo.UserId.Equals(User.Identity.GetUserId()))
+    {
+        if (comment.UserId.Equals(User.Identity.GetUserId()))
+        {
+            <a href="@Url.Action("Edit", "Comment", new { commentId = @comment.Id })">Edit your comment</a>
+            <form method="post" action="/Comment/Delete/@comment.Id">
+                    @Html.HttpMethodOverride(HttpVerbs.Delete)
+                <button style="color:#fff; border-radius:10px; border:none; padding:10px 20px; background-color:#000;" type="submit">Delete Comment</button>
+            </form>
+        }
+        else
+        if(@comment.AcceptedOrDeclined == 0)
+        {
+            <form method="post" action="/Comment/Approve/@comment.Id">
+                @Html.HttpMethodOverride(HttpVerbs.Delete)
+            <button style="color:#fff; border-radius:10px; border:none; padding:10px 20px; background-color:#000;" type="submit">Approve</button>
+            </form>
+
+            <form method="post" action="/Comment/Disapprove/@comment.Id">
+                @Html.HttpMethodOverride(HttpVerbs.Delete)
+                <button style="color:#fff; border-radius:10px; border:none; padding:10px 20px; background-color:#000;" type="submit">Disapprove</button>
+            </form>
+        }
+        if (@comment.AcceptedOrDeclined == -1)
+        {
+            <button class="btn-danger">Dissaproved</button>
+        }
+        if (@comment.AcceptedOrDeclined == 1)
+        {
+            <button class="btn-success">Approved</button>
+        }
+    }
+    else
+    {
+        if (comment.UserId.Equals(User.Identity.GetUserId()))
+        {
+            <a href="@Url.Action("Edit", "Comment", new { commentId = @comment.Id })">Edit your comment</a>
+            <form method="post" action="/Comment/Delete/@comment.Id">
+                @Html.HttpMethodOverride(HttpVerbs.Delete)
+                <button style="color:#fff; border-radius:10px; border:none; padding:10px 20px; background-color:#000;" type="submit">Delete Comment</button>
+            </form>
+        }
+    }
+
+}
+
+<a href="@Url.Action("New","Comment", new { PhotoId = @ViewBag.Photo.Id })">Add comment</a>
