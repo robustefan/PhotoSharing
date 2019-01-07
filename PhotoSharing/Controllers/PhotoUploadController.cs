@@ -144,6 +144,7 @@ namespace PhotoSharing.Controllers
             }
         }
 
+        [Authorize(Roles="Administrator,RegisteredUser")]
         [HttpDelete]
         public ActionResult Delete(int Id)
         {
