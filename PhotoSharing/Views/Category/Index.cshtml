@@ -8,14 +8,28 @@
     <div class="row" style="display:flex; justify-content:center;">
         @foreach (PhotoSharing.Models.Category category in Model)
         {
-        <div style="background-color:#fff; border: 2px solid #fff; border-radius:10px; text-align:center;  margin:3%; width:25%;">
-            <h5 style="font-size:30px;">@category.Name</h5>
-            <a style="background-color:rgb(255,255,255); color:#000; text-decoration:none; text-align:center; padding:10px; padding:10px 20px; border-radius:10px; font-weight:bolder;" href="/Category/Edit/@category.Id">Edit category</a>
-            <form method="post" action="/Category/Delete/@category.Id">
-                @Html.HttpMethodOverride(HttpVerbs.Delete)
-                <button style="color:#fff; border-radius:10px; border:none; padding:10px 20px; background-color:#000;" type="submit">Delete Category</button>
-            </form>
-        </div>
+            if (User.IsInRole("Administrator"))
+            {
+                <a href="/Category/ShowAll/@category.Id">
+                    <div style="background-color:#fff; border: 2px solid #fff; border-radius:10px; text-align:center;  margin:3%; width:25%;">
+                        <h5 style="font-size:30px; color:#000;">@category.Name</h5>
+                        <a style="background-color:rgb(255,255,255); color:#000; text-decoration:none; text-align:center; padding:10px; padding:10px 20px; border-radius:10px; font-weight:bolder;" href="/Category/Edit/@category.Id">Edit category</a>
+                        <form method="post" action="/Category/Delete/@category.Id">
+                            @Html.HttpMethodOverride(HttpVerbs.Delete)
+                            <button style="color:#fff; border-radius:10px; border:none; padding:10px 20px; background-color:#000;" type="submit">Delete Category</button>
+                        </form>
+                    </div>
+                </a>
+            }
+            else
+            {
+                <a style="width:25%; margin:3%; color:#000; background-color:#fff; border-radius:10px;" href="/Category/ShowAll/@category.Id">
+                    <div style=" border-radius:10px; text-align:center; width:100%;">
+                        <h5 style="font-size:30px;">@category.Name</h5>
+                        
+                    </div>
+                </a>
+            }
             
 
         }

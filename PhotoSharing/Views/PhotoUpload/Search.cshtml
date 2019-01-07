@@ -3,7 +3,10 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@foreach (PhotoSharing.Models.Photo photo in ViewBag.Photos)
-{
-    @Html.Partial("_RecentPhoto", photo)
-}
+<h2>Search result</h2>
+<div class="row" style="margin-top:50px;">
+    @foreach (PhotoSharing.Models.Photo photo in ViewBag.Photos)
+    {
+        @Html.Partial("_RecentPhoto", photo)
+    }
+</div>
