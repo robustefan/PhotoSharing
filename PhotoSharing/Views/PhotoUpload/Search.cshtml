@@ -1,0 +1,9 @@
+﻿@{ 
+    ViewBag.Title = "Search";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@foreach (PhotoSharing.Models.Photo photo in ViewBag.Photos)
+{
+    @Html.Partial("_RecentPhoto", photo)
+}

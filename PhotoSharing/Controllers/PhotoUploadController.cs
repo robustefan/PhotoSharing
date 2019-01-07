@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using System.IO;
+using System.Collections.Generic;
 
 namespace PhotoSharing.Controllers
 {
@@ -85,6 +86,25 @@ namespace PhotoSharing.Controllers
                            select comment;
             ViewBag.Category = categories;
             ViewBag.Comments = comments;
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Search(string searchString)
+        {
+            var photos = db.Photos.ToList().Where(x => x.Name.ToLower().Contains(searchString.ToLower()));
+            var categories = db.Categories.ToList().Where(x => x.Name.ToLower().Contains(searchString.ToLower()));
+            List<Photo> photoList = new List<Photo>();
+            photoList = photos.ToList();
+            foreach(Category category in categories)
+            {
+                foreach (Photo photo in category.Photos)
+                {
+                    photoList.Add(photo);
+                }
+            }
+           
+            ViewBag.Photos = photoList.Distinct();
             return View();
         }
 

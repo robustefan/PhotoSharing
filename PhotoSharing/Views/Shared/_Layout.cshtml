@@ -26,7 +26,13 @@
                     <div class="col-md-6" style="display:flex; justify-content:center;">
                         <ul class="nav navbar-nav" style="display:flex; align-items:center;">
                             <li style="margin-right:-25px; z-index:999;"><i class="fas fa-search" style="color:#aaaaaa; font-size:18px;"></i></li>
-                            <li><input type="text" name="search" id="search" placeholder="Search photo..." /></li>
+                                <li>
+                                    @using (Html.BeginForm("Search", "PhotoUpload"))
+                                    {
+                                        <input type="text" name="searchString" id="search" placeholder="Search photo..." />
+                                        <input type="submit" value="Filter" hidden="hidden" />
+                                    }
+                                </li>
                         </ul>
                     </div>
                     <div class="col-md-6">
