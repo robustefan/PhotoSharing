@@ -2,13 +2,20 @@
     ViewBag.Title = "Show";
 }
 
-<h1>@ViewBag.Album.Name</h1>
-<a href="../AddPhotoToAlbum/@ViewBag.Album.Id">Add more Photos to this album</a>
+<h1 style="margin-bottom:50px;">@ViewBag.Album.Name</h1>
+<a style="background-color:#fff; color:#000; padding:10px 20px; border-radius:10px; font-weight:bolder;" href="../AddPhotoToAlbum/@ViewBag.Album.Id">Add more Photos to this album</a>
 
-@foreach (var photo in ViewBag.Photos)
-{
-    <p>@photo.Name</p>
-    <p>@photo.Description</p>
-    <img src="data:image;base64,@System.Convert.ToBase64String(@photo.Image)" />
-    <a href="@Url.Action("Show","PhotoUpload", new { id = @photo.Id })">View Photo</a>
-}
+<div class="container" style="margin-top:50px;">
+    <div class="row">
+        @foreach (var photo in ViewBag.Photos)
+        {
+        <div class="col-md-4">
+            <img src="data:image;base64,@System.Convert.ToBase64String(@photo.Image)" style="width:100%;" />
+            <h3 style="color:#fff;"><strong>Title: </strong>@photo.Name</h3>
+            <h5 style="color:#fff; margin-bottom:20px;"><strong>Description: </strong>@photo.Description</h5>
+            <a  style="background-color:#fff; color:#000; padding:10px 20px; border-radius:10px; font-weight:bolder; margin-top:50px;" href="@Url.Action("Show","PhotoUpload", new { id = @photo.Id })">View Photo</a>
+        </div>
+            
+        }
+    </div>
+</div>

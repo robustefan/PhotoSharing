@@ -3,12 +3,19 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Photos</h2>
 
-@foreach (PhotoSharing.Models.Photo photo in Model)
-{
-    <p>@photo.Name</p>
-    <p>@photo.Description</p>
-    <img src="data:image;base64,@System.Convert.ToBase64String(@photo.Image)" height="180px" width="360px" />
-    <a href="/PhotoUpload/Show/@photo.Id">Show Image</a>
-}
+<div class="container">
+    <div class="row">
+        @foreach (PhotoSharing.Models.Photo photo in Model)
+        {
+        <div class="col-md-4" style="min-height:420px;">
+            <img src="data:image;base64,@System.Convert.ToBase64String(@photo.Image)" style="width:100%;" />
+            <h3 style="color:#fff;"><strong>Title: </strong>@photo.Name</h3>
+            <h5 style="color:#fff; margin-bottom:20px;"><strong>Description: </strong>@photo.Description</h5>
+            <a style="background-color:#fff; color:#000; padding:10px 20px; border-radius:10px; font-weight:bolder; margin-top:50px;" href="/PhotoUpload/Show/@photo.Id">Show Image</a>
+        </div>
+            
+        }
+    </div>
+</div>

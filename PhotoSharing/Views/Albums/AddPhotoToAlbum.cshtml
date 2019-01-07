@@ -2,14 +2,24 @@
     ViewBag.Title = "AddPhotoToAlbum";
 }
 
-<a href="@Url.Action("Show","Albums", new { id = @ViewBag.AlbumId })">Back to @ViewBag.AlbumName</a>
+<a style="background-color:#fff; color:#000; padding:10px 20px; border-radius:10px; font-weight:bolder; margin-top:50px;" href="@Url.Action("Show","Albums", new { id = @ViewBag.AlbumId })">Back to @ViewBag.AlbumName</a>
 
-@foreach (var photo in ViewBag.Photos)
-{
-    <p>@photo.Name</p>
-    <p>@photo.Description</p>
-    <img src="data:image;base64,@System.Convert.ToBase64String(@photo.Image)" />
-    <a href="@Url.Action("AddPhotoToThisAlbum","Albums", new { albumId = @ViewBag.AlbumId ,
-    photoId = @photo.Id })">Add photo to this album</a>
-}
+<div class="container" style="margin-top:50px;">
+    <div class="row">
+        <div class="col-md-4">
+            @foreach (var photo in ViewBag.Photos)
+            {
+                <h3 style="color:#fff;"><strong>Title: </strong>@photo.Name</h3>
+                <h5 style="color:#fff;"><strong>Description: </strong>@photo.Description</h5>
+                <img style="width:100%; margin-bottom: 20px;"src="data:image;base64,@System.Convert.ToBase64String(@photo.Image)" />
+                <div style="text-align:center;">
+                    <a style="background-color:#fff; color:#000; padding:10px 20px; border-radius:10px; font-weight:bolder; margin-top:50px; margin:0 auto;" href="@Url.Action("AddPhotoToThisAlbum","Albums", new { albumId = @ViewBag.AlbumId ,
+                        photoId = @photo.Id })">Add photo to this album</a>
+                </div>
+               
+            }
+        </div>
+    </div>
+</div>
+
 
