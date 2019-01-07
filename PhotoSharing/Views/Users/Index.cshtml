@@ -3,23 +3,20 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
-
-
 <div class="panel-heading">Nume utilizator: @Model.UserName</div>
-<div class="panel-body">
+<div class="panel-body" style="color:#fff;">
         <i class="glyphicon glyphicon-envelope"></i> Email utilizator:
-        <span class="label label-default">@Model.Email</span>
+        <span class="label label-default" style="color:#fff;">@Model.Email</span>
         <br /><br />
 
         @if (@Model.PhoneNumber != null)
         {
             <i class="glyphicon glyphicon-phone"></i>@:Telefon
-utilizator:<span class="label label-default">@Model.PhoneNumber</span>
+utilizator:<span class="label label-default" style="color:#fff;">@Model.PhoneNumber</span>
         }
     </div>
-    <div class="panel-footer">
-        <a class="btn btn-sm btn-success" href="/Users/Edit/@Model.Id">
+    <div class="panel-footer" style="background:none;">
+        <a style="background-color:#fff; color:#000; padding:10px 20px; border-radius:10px; font-weight:bolder; margin-top:50px; margin:0 auto;" href="/Users/Edit/@Model.Id">
             Afisare utilizator
         </a>
     </div>

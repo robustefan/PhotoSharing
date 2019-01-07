@@ -2,8 +2,12 @@
     ViewBag.Title = "Edit";
 }
 <h2>Edit Photo</h2>
-
-<form method="post" action="/PhotoUpload/Edit/@ViewBag.Photo.Id">
+<div class="row">
+    <div class="col-md-4">
+        <img src="data:image;base64,@System.Convert.ToBase64String(@ViewBag.Photo.Image)" style="width:100%;" />
+    </div>
+</div>
+<form style="margin-top:50px;" method="post" action="/PhotoUpload/Edit/@ViewBag.Photo.Id">
     @Html.HttpMethodOverride(HttpVerbs.Put)
 
     <label style="color:#fff;">Photo Name: </label>
@@ -21,6 +25,6 @@
 
 
 
-    <button type="submit">Edit Photo</button>
+    <button style="background-color:#fff; color:#000; padding:10px 20px; border-radius:10px; font-weight:bolder; margin-top:50px; margin:0 auto;" type="submit">Edit Photo</button>
 
 </form>

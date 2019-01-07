@@ -3,9 +3,9 @@
     ViewBag.Title = "Edit";
 }
 
-<h2>Edit</h2>
+<h2>Edit your personal data</h2>
 @model PhotoSharing.Models.ApplicationUser
-<form method="post" action="/Users/Edit/@Model.Id">
+<form style="color:#fff;" method="post" action="/Users/Edit/@Model.Id">
     @Html.HttpMethodOverride(HttpVerbs.Put)
     @Html.HiddenFor(m => m.Id)
     <br />
@@ -24,7 +24,7 @@
     <br />
     @Html.EditorFor(m => m.PhoneNumber)
     <br /><br />
-    <button class="btn btn-sm btn-success" type="submit">
+    <button style="background-color:#fff; color:#000; padding:10px 20px; border-radius:10px; font-weight:bolder; margin-top:50px; margin:0 auto;" type="submit">
         Modifica datele
         utilizatorului
     </button>

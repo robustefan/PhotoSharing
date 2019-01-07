@@ -5,7 +5,7 @@
 }
 
 <h2>@ViewBag.Title.</h2>
-<div class="row">
+<div class="row" style="color:#fff;">
     <div class="col-md-8">
         <section id="loginForm">
             @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
@@ -38,11 +38,11 @@
                 </div>
                 <div class="form-group">
                     <div class="col-md-offset-2 col-md-10">
-                        <input type="submit" value="Log in" class="btn btn-default" />
+                        <input style="background-color:#fff; color:#000; padding:10px 20px; border-radius:10px; font-weight:bolder; margin-top:50px; margin:0 auto;" type="submit" value="Log in" class="btn btn-default" />
                     </div>
                 </div>
                 <p>
-                    @Html.ActionLink("Register as a new user", "Register")
+                    <a style="color:#fff;" href="/Account/Register">Register as a new user</a>
                 </p>
                 @* Enable this once you have account confirmation enabled for password reset functionality
                     <p>
@@ -52,9 +52,9 @@
         </section>
     </div>
     <div class="col-md-4">
-        <section id="socialLoginForm">
-            @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
-        </section>
+        <!-- <section id="socialLoginForm">
+         @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
+     </section> -->
     </div>
 </div>
 
