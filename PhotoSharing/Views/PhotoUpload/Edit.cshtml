@@ -1,0 +1,26 @@
+﻿@{
+    ViewBag.Title = "Edit";
+}
+<h2>Edit Photo</h2>
+
+<form method="post" action="/PhotoUpload/Edit/@ViewBag.Photo.Id">
+    @Html.HttpMethodOverride(HttpVerbs.Put)
+
+    <label style="color:#fff;">Photo Name: </label>
+    <br />
+    @Html.Editor("Name")
+    @Html.ValidationMessage("Name", new { @class = "text-danger " })
+    <br /><br />
+
+    <label style="color:#fff;">Photo Description: </label>
+    <br />
+    @Html.Editor("Description")
+    @Html.ValidationMessage("Description", new { @class = "text-danger " })
+    <br /><br />
+
+
+
+
+    <button type="submit">Edit Photo</button>
+
+</form>
