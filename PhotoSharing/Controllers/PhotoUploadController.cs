@@ -20,6 +20,7 @@ namespace PhotoSharing.Controllers
             return View(photos.Take(12));
         }
 
+        [Authorize(Roles = "RegisteredUser,Administrator")]
         public ActionResult New()
         {
             var categories = from category in db.Categories
@@ -36,7 +37,7 @@ namespace PhotoSharing.Controllers
             return View(Photos.Take(12));
         }
 
-
+        [Authorize(Roles ="RegisteredUser,Administrator")]
         [HttpPost]
         public ActionResult New(Photo photo,HttpPostedFileBase PostedImage, Category category)
         {
@@ -79,7 +80,11 @@ namespace PhotoSharing.Controllers
             var categories = from category in db.Categories
                                where category.Id == photo.CategoryId
                                select category;
-            ViewBag.cat = categories;
+            var comments = from comment in db.Comments
+                           where comment.PhotoId == id
+                           select comment;
+            ViewBag.Category = categories;
+            ViewBag.Comments = comments;
             return View();
         }
 

@@ -12,6 +12,8 @@ namespace PhotoSharing.Controllers
     {
         private PhotoDBContext db = new PhotoDBContext();
         // GET: Albums
+
+        [Authorize(Roles = "RegisteredUser")]
         public ActionResult Index()
         {
             string id = User.Identity.GetUserId();
@@ -23,6 +25,7 @@ namespace PhotoSharing.Controllers
             return View();
         }
 
+        [Authorize(Roles = "RegisteredUser")]
         public ActionResult Show(int id)
         {
             Album album = db.Albums.Find(id);
@@ -32,11 +35,13 @@ namespace PhotoSharing.Controllers
             return View();
         }
 
+        [Authorize(Roles ="RegisteredUser")]
         public ActionResult New()
         {
             return View();
         }
 
+        [Authorize(Roles = "RegisteredUser")]
         [HttpPost]
         public ActionResult New(Album album)
         {
@@ -60,6 +65,7 @@ namespace PhotoSharing.Controllers
             }
         }
 
+        [Authorize(Roles = "RegisteredUser")]
         public ActionResult AddPhotoToAlbum(int id)
         {
             string idUser = User.Identity.GetUserId();
@@ -74,6 +80,7 @@ namespace PhotoSharing.Controllers
             return View();
         }
 
+        [Authorize(Roles = "RegisteredUser")]
         public ActionResult AddPhotoToThisAlbum(int albumId, int photoId)
         {
             Album album = db.Albums.Find(albumId);

@@ -2,8 +2,22 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h1>Insert Comment</h1>
 
 <p>@Model.Name</p>
 <p>@Model.Description</p>
 <img src="data:image;base64,@System.Convert.ToBase64String(@Model.Image)" height="180px" width="360px" />
+
+<div class="row">
+    @using (Html.BeginForm())
+    {
+        <input type="hidden" name="Id" value="@Model.Id"/>
+        @Html.Label("Text", "Introduce comment:")
+        <br />
+        @Html.Editor("Text")
+        @Html.ValidationMessage("Text", new { @class = "text-danger " })
+        <br /><br />
+        <input type="submit" class="submit" value="Insert comment" />
+    }
+</div>
+
