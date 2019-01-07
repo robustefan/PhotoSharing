@@ -2,8 +2,17 @@
     ViewBag.Title = "Index";
 }
 
-<h1>@ViewBag.UserName Albums:</h1>
-@foreach (var album in ViewBag.Albums)
-{
-    <a href="/Albums/Show/@album.Id"><p>@album.Name</p></a>
-}
+<h1 style="color:#fff; text-align:center;">@ViewBag.UserName Your albums</h1>
+<div class="row" style="margin-top:50px;">
+    @foreach (var album in ViewBag.Albums)
+    {
+    <div class="col-md-4" style="text-align:center;">
+        <a style="color:#fff;" href="/Albums/Show/@album.Id"><p>@album.Name</p></a>
+    </div>
+        
+    }
+    <div style="text-align:center;margin-top:50px;">
+        <a style="color:#000; background-color:#fff; border-radius:10px; padding:10px 20px; font-weight:bolder; margin-top:50px;" href="/Albums/New">Add another album</a>
+    </div>
+</div>
+

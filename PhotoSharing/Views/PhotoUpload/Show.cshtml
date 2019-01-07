@@ -3,10 +3,21 @@
     ViewBag.Title = "Show";
 }
 
-<p>@ViewBag.Photo.Name</p>
-<p>@ViewBag.Photo.Description</p>
-<img src="data:image;base64,@System.Convert.ToBase64String(@ViewBag.Photo.Image)"/>
-@foreach (PhotoSharing.Models.Category category in ViewBag.cat)
-{
-    <a href="../../Category/ShowAll/@category.Id">#@category.Name</a>
-}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <img style="width:100%;" src="data:image;base64,@System.Convert.ToBase64String(@ViewBag.Photo.Image)" />
+        </div>
+    </div>
+    
+    <h3 style="color:#fff;"><strong>Title: </strong>@ViewBag.Photo.Name</h3>
+    <h5 style="color:#fff;"><strong>Description: </strong>@ViewBag.Photo.Description</h5>
+    <div style="display:flex; align-items:center;">
+        <h4 style="margin-right:10px; font-weight:bolder;">Category:  </h4>
+        @foreach (PhotoSharing.Models.Category category in ViewBag.cat)
+        {
+            <a style="color:#fff; font-size:16px;" href="../../Category/ShowAll/@category.Id">#@category.Name</a>
+        }
+    </div>
+</div>
+
