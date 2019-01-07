@@ -3,17 +3,19 @@
     ViewBag.Title = "New";
 }
 
-<h2>New Photo:</h2>
+<h2 style="margin-bottom:30px;">Add a new Photo</h2>
 
 @using (Html.BeginForm("New", "PhotoUpload", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
-    @Html.Label("Name", "Photo Name:")
+    //@Html.Label("Name", "Photo Name:")
+    <label style="color:#fff;"> Please insert a title for your photo</label>
     <br />
     @Html.Editor("Name")
     @Html.ValidationMessage("Name", new{@class = "text-danger "})
     <br /><br />
 
-    @Html.Label("Description", "Photo Description:")
+   // @Html.Label("Description", "Photo Description:")
+    <label style="color:#fff;"> Please insert a short description for your photo:</label>
     <br />
     @Html.Editor("Description")
     @Html.ValidationMessage("Description", new { @class = "text-danger " })
@@ -21,10 +23,12 @@
 
     @Html.Label("PostedImage","Upload Image:")
     <br />
+    <label style="color:#fff;">Load a photo:</label>
     <input type="file" name="PostedImage" id="PostedImage" style="width: 100%;" />
     @Html.ValidationMessage("PostedImage", new { @class = "text-danger " })
     <br />
 
+    <label style="color:#fff;">Select category</label>
     <select name="Id">
         @foreach (var category in Model)
         {
@@ -36,6 +40,6 @@
 
 
     <br />
-    <input type="submit" class="submit" />
+    <input type="submit" class="submit" value="Load Photo" style="background-color:#fff; color:#000; padding:10px 20px; border-radius:10px; font-weight:bolder;border:none; margin-top:10px;"/>
 
 }
