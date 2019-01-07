@@ -108,5 +108,56 @@ namespace PhotoSharing.Controllers
             return View();
         }
 
+        [Authorize(Roles="RegisteredUser,Administrator")]
+        public ActionResult Edit(int id)
+        {
+            Photo photo = db.Photos.Find(id);
+            ViewBag.Photo = photo;
+            return View();
+        }
+
+        [Authorize(Roles = "RegisteredUser,Administrator")]
+        [HttpPut]
+        public ActionResult Edit(int id, Photo requestPhoto)
+        {
+            try
+            {
+                Photo photo = db.Photos.Find(id);
+                if (User.Identity.GetUserId().Equals(photo.UserId))
+                {
+                    if (TryUpdateModel(photo))
+                    {
+                        photo.Name = requestPhoto.Name;
+                        photo.Description = requestPhoto.Description;
+                        db.SaveChanges();
+                        return RedirectToAction("Show", "PhotoUpload", new { id = id });
+                    }
+                    else
+                        return RedirectToAction("Show", "PhotoUpload", new { id = id });
+                }
+                else
+                    return View();
+            }
+            catch(Exception e)
+            {
+                return View();
+            }
+        }
+
+        [HttpDelete]
+        public ActionResult Delete(int Id)
+        {
+
+            Photo photo = db.Photos.Find(Id);
+            if (photo.UserId.Equals(User.Identity.GetUserId()) || User.IsInRole("Administrator"))
+            {
+                db.Photos.Remove(photo);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            else
+                return View();
+        }
+
     }
 }
