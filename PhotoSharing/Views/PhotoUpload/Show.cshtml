@@ -12,6 +12,21 @@
     </div>
     <h3 style="color:#fff;"><strong>Title: </strong>@ViewBag.Photo.Name</h3>
     <h5 style="color:#fff;"><strong>Description: </strong>@ViewBag.Photo.Description</h5>
+    @if(@ViewBag.Photo.UserId.Equals(User.Identity.GetUserId()))
+    {
+        <a href="@Url.Action("Edit","PhotoUpload",new { id = @ViewBag.Photo.Id })">Edit photo</a>
+        <form method="post" action="/PhotoUpload/Delete/@ViewBag.Photo.Id">
+            @Html.HttpMethodOverride(HttpVerbs.Delete)
+            <button style="color:#fff; border-radius:10px; border:none; padding:10px 20px; background-color:#000;" type="submit">Delete Photo</button>
+        </form>
+    }
+    @if (User.IsInRole("Administrator"))
+    {
+        <form method="post" action="/PhotoUpload/Delete/@ViewBag.Photo.Id">
+            @Html.HttpMethodOverride(HttpVerbs.Delete)
+            <button style="color:#fff; border-radius:10px; border:none; padding:10px 20px; background-color:#000;" type="submit">Delete Photo</button>
+        </form>
+    }
     <div style="display:flex; align-items:center;">
         <h4 style="margin-right:10px; font-weight:bolder;">Category:  </h4>
 
@@ -64,10 +79,18 @@
 		                @Html.HttpMethodOverride(HttpVerbs.Delete)
 		                <button style="color:#fff; border-radius:10px; border:none; padding:10px 20px; background-color:#000;" type="submit">Delete Comment</button>
 		            </form>
-		        }
-		    }
+                }
+                else
+                    if (User.IsInRole("Administrator"))
+                {
+                    <form method="post" action="/Comment/Delete/@comment.Id">
+                        @Html.HttpMethodOverride(HttpVerbs.Delete)
+                        <button style="color:#fff; border-radius:10px; border:none; padding:10px 20px; background-color:#000;" type="submit">Delete Comment</button>
+                    </form>
+                }
+            }
 
-		}
+        }
 
 		<a href="@Url.Action("New","Comment", new { PhotoId = @ViewBag.Photo.Id })">Add comment</a>
 

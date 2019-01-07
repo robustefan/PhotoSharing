@@ -14,10 +14,7 @@ namespace PhotoSharing.Controllers
 
         public ActionResult Index()
         {
-            var comments = from comment in db.Comments
-                           orderby comment.Id
-                           select comment;
-            return View(comments);
+            return View();
         }
 
         public ActionResult New(int PhotoId)
@@ -86,7 +83,7 @@ namespace PhotoSharing.Controllers
         public ActionResult Delete(int Id)
         {
             Comment comment = db.Comments.Find(Id);
-            if (comment.UserId.Equals(User.Identity.GetUserId()))
+            if (comment.UserId.Equals(User.Identity.GetUserId()) || User.IsInRole("Administrator"))
             {
                 db.Comments.Remove(comment);
                 db.SaveChanges();
